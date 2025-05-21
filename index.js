@@ -17,7 +17,7 @@ panel.plugin("ffeierabend/fireblock-image", {
           return this.field("caption", {marks: true}).marks;
         },
         crop() {
-          return this.content.crop || false;
+          if (this.content.ratio) return true || false;
         },
         padding() {
           return "padding-top: " + this.content.padding_top + "; padding-right: " + this.content.padding_right + "; padding-bottom: " + this.content.padding_bottom + "; padding-left: " + this.content.padding_left || false;
