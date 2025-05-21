@@ -1,0 +1,15 @@
+/* block image */
+.k-block-type-image .k-block-figure-container {
+	display: block;
+	text-align: center;
+	line-height: 0;
+}
+.k-block-type-image-auto {
+	max-width: 100%;
+	max-height: 30rem;
+}
+
+.k-block-type-image[data-level="h6"] {
+	line-height: 1.5em;
+	font-size: var(--text-sm);
+}
