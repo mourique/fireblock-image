@@ -1,14 +1,9 @@
 <?php
     /** @var \Kirby\Cms\Block $block */
     $caption = $block->caption();
-    $crop = $block->crop()->isTrue();
     $link = $block->link();
-    $max_width = $block->max_width();
     $ratio = $block->ratio()->or('auto');
     $image_height_mobile = $block->image_height_mobile()->or('auto');
-    $hpos    = $block->horizontal_positon();
-$vpos    = $block->vertical_positon();
-$pulled_out = $block->pulled_out()->toBool();
     $src = null;
     $sizes = "(min-width: 1125px) calc(" . round(100 / (12 / 12), 0) . "vw), 100vw";
     if ($block->location() == 'web') {
@@ -19,18 +14,10 @@ $pulled_out = $block->pulled_out()->toBool();
     }
     ?>
 
-<div class="block block-media block-<?= $block->type() ?> <?= e($block->hide_on_mobile()->toBool(), "hide-on-mobile") ?> <?= e($pulled_out, "pulled-out-block") ?>" style="max-width: <?= $max_width ?>">
+<div class="block block-media block-<?= $block->type() ?> <?= e($block->hide_on_mobile()->toBool(), "hide-on-mobile") ?>">
     <?php if ($src): ?>
-        <figure <?= Html::attr(['data-ratio' => $ratio, 'data-crop' => $crop], null, ' ') ?>
-                style=" --padding-top:<?= $block->padding_top() ?>;
-                        --padding-right:<?= $block->padding_right() ?>;
-                        --padding-bottom:<?= $block->padding_bottom() ?>;
-                        --padding-left:<?= $block->padding_left() ?>;
-                        --margin-top:<?= $block->margin_top() ?>;
-                        --margin-right:<?= $block->margin_right() ?>;
-                        --margin-bottom:<?= $block->margin_bottom() ?>;
-                        --margin-left:<?= $block->margin_left() ?>;
-                        ">
+        <figure <?= Html::attr(['data-ratio' => $ratio], null, ' ') ?>
+                >
 
             <?php if ($link->isNotEmpty()): ?><a href="<?= Str::esc($link->toUrl()) ?>"><?php endif; ?>
 
@@ -48,7 +35,7 @@ $pulled_out = $block->pulled_out()->toBool();
                                 loading="lazy"
                         >
                         <img
-                                style="--aspect-ratio:<?= $ratio ?>;object-position: <?= $hpos ?> <?= $vpos ?>;"
+                                style="--aspect-ratio:<?= $ratio ?>;object-position:<?= $image->focus()->or('50% 50%') ?>;"
                                 src="<?= $image->thumbhashUri() ?>"
                                 loading="lazy" 
                                 data-srcset="<?= $image->srcset() ?>"

@@ -68,26 +68,7 @@ fields:
   hide_on_mobile:
     type: toggle
     label: Bild in Mobile verstecken
-    width: 1/4
+    width: 3/4
     text:
       - "nein"
       - "ja"
-  padding_heading:
-    type: headline
-    label: Innenabstand
-  padding_top:
-    label: Oben
-    type: text
-    width: 1/4
-  padding_right:
-    label: Rechts
-    type: text
-    width: 1/4
-  padding_bottom:
-    label: Unten
-    type: text
-    width: 1/4
-  padding_left:
-    label: Links
-    type: text
-    width: 1/4
