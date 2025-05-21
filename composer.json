@@ -3,7 +3,6 @@
     "description": "Imageblock for the firekit pagebuilder system; Implements lazyloading with generated thumbnails",
     "license": "MIT",
     "type": "kirby-plugin",
-    "version": "1.0.0",
     "authors": [
         {
             "name": "Felix Feierabend",
